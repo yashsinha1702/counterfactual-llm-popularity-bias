@@ -1,0 +1,4 @@
+Encoding 3883 item descriptions...
+  sentence-transformers unavailable (No module named 'sentence_transformers'); falling back to TF-IDF+SVD
+  shape: (3883, 384)
+Saved: outputs/item_llm_emb.npy

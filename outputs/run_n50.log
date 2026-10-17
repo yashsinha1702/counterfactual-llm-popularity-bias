@@ -1,0 +1,7 @@
+Loading data...
+  train=797,758 test=202,451 movies=3,883 users=6,040
+  subsample=50
+Running baseline (n=50, conc=16)...
+baseline:   0%|          | 0/50 [00:00<?, ?it/s]baseline:   2%|▏         | 1/50 [00:00<00:05,  8.32it/s]baseline: 100%|██████████| 50/50 [00:00<00:00, 262.24it/s]
+Running counterfactual pipeline (n=50, conc=16)...
+cf:   0%|          | 0/50 [00:00<?, ?it/s]cf:   2%|▏         | 1/50 [00:00<00:15,  3.13it/s]cf:  16%|█▌        | 8/50 [03:15<17:46, 25.39s/it]cf:  18%|█▊        | 9/50 [03:17<14:49, 21.68s/it]

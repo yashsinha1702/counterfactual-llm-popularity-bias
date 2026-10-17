@@ -1,0 +1,36 @@
+Loading ratings (device=cpu)...
+  train=797,758  test_sample=2000
+  n_users=6040 n_items=3669
+  epoch   1: train_mse=1.2383  test_rmse=1.0124
+  epoch   2: train_mse=0.8588  test_rmse=0.9495
+  epoch   3: train_mse=0.8085  test_rmse=0.9311
+  epoch   4: train_mse=0.7781  test_rmse=0.9182
+  epoch   5: train_mse=0.7554  test_rmse=0.9121
+  epoch   6: train_mse=0.7399  test_rmse=0.9081
+  epoch   7: train_mse=0.7289  test_rmse=0.9050
+  epoch   8: train_mse=0.7188  test_rmse=0.9028
+  epoch   9: train_mse=0.7086  test_rmse=0.9011
+  epoch  10: train_mse=0.6977  test_rmse=0.8973
+  epoch  11: train_mse=0.6874  test_rmse=0.8955
+  epoch  12: train_mse=0.6766  test_rmse=0.8947
+  epoch  13: train_mse=0.6658  test_rmse=0.8935
+  epoch  14: train_mse=0.6542  test_rmse=0.8931
+  epoch  15: train_mse=0.6423  test_rmse=0.8925
+  epoch  16: train_mse=0.6303  test_rmse=0.8928
+  epoch  17: train_mse=0.6178  test_rmse=0.8951
+  epoch  18: train_mse=0.6054  test_rmse=0.8947
+  epoch  19: train_mse=0.5928  test_rmse=0.8944
+  epoch  20: train_mse=0.5808  test_rmse=0.8957
+  epoch  21: train_mse=0.5684  test_rmse=0.8958
+  epoch  22: train_mse=0.5572  test_rmse=0.8968
+  epoch  23: train_mse=0.5461  test_rmse=0.9004
+  epoch  24: train_mse=0.5349  test_rmse=0.9020
+  epoch  25: train_mse=0.5243  test_rmse=0.9084
+
+NeuMF best @ epoch 15: rmse=0.8925 mae=0.7046 bias=+0.0339 mean_pred=3.470 (elapsed=47.2 min)
+  bucket_0 (n=400, pop=81.7): rmse=0.9563 bias=+0.0663
+  bucket_1 (n=400, pop=226.2): rmse=0.8941 bias=+0.0572
+  bucket_2 (n=400, pop=409.1): rmse=0.8672 bias=+0.0001
+  bucket_3 (n=400, pop=690.0): rmse=0.8898 bias=+0.0258
+  bucket_4 (n=400, pop=1343.0): rmse=0.8514 bias=+0.0203
+Saved: outputs/neumf_n2000_1776446353

@@ -1,0 +1,42 @@
+LightGCN (dim=64 layers=3 epochs=30 device=cpu)
+  users=6040  items=3667  train_ratings=797758
+  WARNING: item embedding rows (3883) != n_items (3667); skipping init
+  epoch   1: train_mse=2.7553  test_rmse=1.7966  mae=1.4461  bias=+1.3747
+  epoch   2: train_mse=2.5170  test_rmse=1.6966  mae=1.3626  bias=+1.2431
+  epoch   3: train_mse=2.1302  test_rmse=1.5333  mae=1.2157  bias=+1.0166
+  epoch   4: train_mse=1.6587  test_rmse=1.3422  mae=1.0244  bias=+0.7224
+  epoch   5: train_mse=1.2940  test_rmse=1.1977  mae=0.9176  bias=+0.4775
+  epoch   6: train_mse=1.0830  test_rmse=1.1039  mae=0.8569  bias=+0.3360
+  epoch   7: train_mse=0.9695  test_rmse=1.0506  mae=0.8216  bias=+0.2492
+  epoch   8: train_mse=0.9107  test_rmse=1.0198  mae=0.8016  bias=+0.1959
+  epoch   9: train_mse=0.8774  test_rmse=1.0005  mae=0.7899  bias=+0.1587
+  epoch  10: train_mse=0.8570  test_rmse=0.9879  mae=0.7820  bias=+0.1356
+  epoch  11: train_mse=0.8435  test_rmse=0.9786  mae=0.7765  bias=+0.1162
+  epoch  12: train_mse=0.8340  test_rmse=0.9722  mae=0.7725  bias=+0.1020
+  epoch  13: train_mse=0.8270  test_rmse=0.9679  mae=0.7694  bias=+0.0984
+  epoch  14: train_mse=0.8216  test_rmse=0.9643  mae=0.7670  bias=+0.0909
+  epoch  15: train_mse=0.8171  test_rmse=0.9607  mae=0.7646  bias=+0.0821
+  epoch  16: train_mse=0.8133  test_rmse=0.9586  mae=0.7628  bias=+0.0811
+  epoch  17: train_mse=0.8098  test_rmse=0.9562  mae=0.7609  bias=+0.0789
+  epoch  18: train_mse=0.8065  test_rmse=0.9539  mae=0.7591  bias=+0.0732
+  epoch  19: train_mse=0.8034  test_rmse=0.9515  mae=0.7575  bias=+0.0702
+  epoch  20: train_mse=0.8002  test_rmse=0.9493  mae=0.7556  bias=+0.0693
+  epoch  21: train_mse=0.7970  test_rmse=0.9474  mae=0.7542  bias=+0.0647
+  epoch  22: train_mse=0.7939  test_rmse=0.9451  mae=0.7524  bias=+0.0611
+  epoch  23: train_mse=0.7909  test_rmse=0.9428  mae=0.7508  bias=+0.0554
+  epoch  24: train_mse=0.7880  test_rmse=0.9415  mae=0.7493  bias=+0.0599
+  epoch  25: train_mse=0.7853  test_rmse=0.9397  mae=0.7480  bias=+0.0573
+  epoch  26: train_mse=0.7829  test_rmse=0.9381  mae=0.7468  bias=+0.0557
+  epoch  27: train_mse=0.7808  test_rmse=0.9368  mae=0.7459  bias=+0.0548
+  epoch  28: train_mse=0.7790  test_rmse=0.9353  mae=0.7449  bias=+0.0514
+  epoch  29: train_mse=0.7774  test_rmse=0.9347  mae=0.7443  bias=+0.0541
+  epoch  30: train_mse=0.7760  test_rmse=0.9334  mae=0.7439  bias=+0.0460
+
+LightGCN best @ epoch 30: rmse=0.9334 mae=0.7439 bias=+0.0460 mean_pred=3.482 (elapsed=104.5 min)
+  bucket_0 (n=400, pop=81.7): rmse=1.0076 bias=+0.1459
+  bucket_1 (n=400, pop=226.2): rmse=0.9376 bias=+0.0801
+  bucket_2 (n=400, pop=409.1): rmse=0.9197 bias=-0.0306
+  bucket_3 (n=400, pop=690.0): rmse=0.9206 bias=+0.0105
+  bucket_4 (n=400, pop=1343.0): rmse=0.8765 bias=+0.0239
+
+Saved: outputs/lightgcn_n2000_1776546172

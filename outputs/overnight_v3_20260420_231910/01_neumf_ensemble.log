@@ -1,0 +1,35 @@
+Loading data...
+  n_users=6040 n_items=3669 train=797,758 test=2000
+Device: cuda
+
+--- Training d64_s0 (dim=64, mlp=(128, 64, 32), drop=0.1, lr=0.001) ---
+  → rmse=0.8928 mae=0.7029 bias=+0.0253 epoch=19 (324s)
+
+--- Training d64_s1 (dim=64, mlp=(128, 64, 32), drop=0.1, lr=0.001) ---
+  → rmse=0.8937 mae=0.7038 bias=+0.0273 epoch=19 (323s)
+
+--- Training d64_s2 (dim=64, mlp=(128, 64, 32), drop=0.1, lr=0.001) ---
+  → rmse=0.8938 mae=0.7037 bias=+0.0274 epoch=26 (314s)
+
+--- Training d64_s3 (dim=64, mlp=(128, 64, 32), drop=0.1, lr=0.001) ---
+  → rmse=0.8911 mae=0.7039 bias=+0.0312 epoch=16 (318s)
+
+--- Training d64_s4 (dim=64, mlp=(128, 64, 32), drop=0.1, lr=0.001) ---
+  → rmse=0.8934 mae=0.7042 bias=+0.0276 epoch=19 (322s)
+
+--- Training d128_s0 (dim=128, mlp=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  → rmse=0.9106 mae=0.7191 bias=+0.0255 epoch=20 (326s)
+
+--- Training d128_s1 (dim=128, mlp=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  → rmse=0.9062 mae=0.7134 bias=+0.0265 epoch=32 (325s)
+
+--- Training d128_s2 (dim=128, mlp=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  → rmse=0.9112 mae=0.7180 bias=+0.0345 epoch=31 (325s)
+
+  Ensemble avg_d64: rmse=0.8909 mae=0.7022 bias=+0.0278
+
+  Ensemble avg_d128: rmse=0.9082 mae=0.7159 bias=+0.0288
+
+  Ensemble avg_all: rmse=0.8902 mae=0.7023 bias=+0.0282
+
+Saved: outputs/neumf_ensemble_n2000_1776707351 (43.0 min total)

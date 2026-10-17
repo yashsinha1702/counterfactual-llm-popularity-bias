@@ -1,0 +1,25 @@
+{
+  "protocol": "rank-within-sample, n=2000 stratified test sample",
+  "positive_threshold": 4,
+  "eligible_users": 278,
+  "n_pairs": 2000,
+  "positives_per_user_median": 1.0,
+  "n_methods": 25,
+  "top_3_by_ndcg10": [
+    {
+      "method": "pred_cfv2_retr_raw_72b",
+      "ndcg@10": 0.9469688073346745,
+      "hr@10": 1.0
+    },
+    {
+      "method": "pred_cfv2_retr_cal_72b",
+      "ndcg@10": 0.9469688073346745,
+      "hr@10": 1.0
+    },
+    {
+      "method": "pred_ItemKNN",
+      "ndcg@10": 0.9469688073346745,
+      "hr@10": 1.0
+    }
+  ]
+}

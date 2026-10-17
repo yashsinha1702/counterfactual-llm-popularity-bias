@@ -1,0 +1,56 @@
+Loading data...
+  train=797,758  test=2000
+Building user-genre affinity...
+  Got affinity for 6040 users
+Preparing training features...
+Preparing test features...
+Device: cuda
+
+--- DeepFM base_s0 (dim=64, deep=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  epoch   1: train_mse=0.9692 test_rmse=0.9616
+  epoch  11: train_mse=0.6555 test_rmse=0.9799
+  epoch  21: train_mse=0.6088 test_rmse=0.9809
+  epoch  31: train_mse=0.5506 test_rmse=0.9825
+  epoch  41: train_mse=0.5171 test_rmse=0.9855
+  epoch  50: train_mse=0.5093 test_rmse=0.9874
+  → rmse=0.9616 mae=0.7618 bias=-0.0309 epoch=1 (50s)
+
+--- DeepFM base_s1 (dim=64, deep=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  epoch   1: train_mse=0.9777 test_rmse=0.9822
+  epoch  11: train_mse=0.6568 test_rmse=0.9895
+  epoch  21: train_mse=0.6064 test_rmse=0.9762
+  epoch  31: train_mse=0.5458 test_rmse=0.9789
+  epoch  41: train_mse=0.5090 test_rmse=0.9834
+  epoch  50: train_mse=0.5005 test_rmse=0.9846
+  → rmse=0.9716 mae=0.7390 bias=-0.0255 epoch=23 (55s)
+
+--- DeepFM base_s2 (dim=64, deep=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  epoch   1: train_mse=0.9725 test_rmse=0.9903
+  epoch  11: train_mse=0.6545 test_rmse=0.9853
+  epoch  21: train_mse=0.6069 test_rmse=0.9832
+  epoch  31: train_mse=0.5487 test_rmse=0.9919
+  epoch  41: train_mse=0.5108 test_rmse=0.9926
+  epoch  50: train_mse=0.5024 test_rmse=0.9939
+  → rmse=0.9810 mae=0.7465 bias=-0.0094 epoch=23 (53s)
+
+--- DeepFM d96_s0 (dim=96, deep=(256, 128, 64), drop=0.2, lr=0.0006) ---
+  epoch   1: train_mse=0.9934 test_rmse=0.9554
+  epoch  11: train_mse=0.6606 test_rmse=0.9823
+  epoch  21: train_mse=0.6223 test_rmse=0.9831
+  epoch  31: train_mse=0.5842 test_rmse=0.9809
+  epoch  41: train_mse=0.5594 test_rmse=0.9797
+  epoch  50: train_mse=0.5537 test_rmse=0.9806
+  → rmse=0.9554 mae=0.7600 bias=+0.0339 epoch=1 (53s)
+
+--- DeepFM d96_s1 (dim=96, deep=(256, 128, 64), drop=0.2, lr=0.0006) ---
+  epoch   1: train_mse=0.9927 test_rmse=0.9550
+  epoch  11: train_mse=0.6643 test_rmse=0.9872
+  epoch  21: train_mse=0.6207 test_rmse=0.9797
+  epoch  31: train_mse=0.5807 test_rmse=0.9751
+  epoch  41: train_mse=0.5580 test_rmse=0.9782
+  epoch  50: train_mse=0.5518 test_rmse=0.9797
+  → rmse=0.9550 mae=0.7599 bias=+0.0357 epoch=1 (53s)
+
+  DeepFM ensemble avg: rmse=0.9312 mae=0.7328 bias=+0.0008
+
+Saved: outputs/deepfm_n2000_1776709933 (4.7 min total)

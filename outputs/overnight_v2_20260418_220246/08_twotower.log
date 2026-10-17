@@ -1,0 +1,37 @@
+TwoTower (item_emb=outputs/item_llm_emb.npy device=cpu)
+  item embedding shape: (3883, 384)
+  users=6040  user_feat_dim=386
+  epoch   1: train_mse=1.3262  test_rmse=1.0219  mae=0.8159  bias=+0.1412
+  epoch   2: train_mse=0.9204  test_rmse=0.9985  mae=0.7985  bias=+0.1219
+  epoch   3: train_mse=0.8879  test_rmse=0.9875  mae=0.7884  bias=+0.1169
+  epoch   4: train_mse=0.8664  test_rmse=0.9773  mae=0.7813  bias=+0.1005
+  epoch   5: train_mse=0.8507  test_rmse=0.9675  mae=0.7738  bias=+0.0634
+  epoch   6: train_mse=0.8385  test_rmse=0.9613  mae=0.7685  bias=+0.0594
+  epoch   7: train_mse=0.8283  test_rmse=0.9574  mae=0.7649  bias=+0.0591
+  epoch   8: train_mse=0.8176  test_rmse=0.9530  mae=0.7595  bias=+0.0854
+  epoch   9: train_mse=0.8069  test_rmse=0.9513  mae=0.7580  bias=+0.0963
+  epoch  10: train_mse=0.7991  test_rmse=0.9474  mae=0.7540  bias=+0.0950
+  epoch  11: train_mse=0.7933  test_rmse=0.9400  mae=0.7512  bias=+0.0284
+  epoch  12: train_mse=0.7893  test_rmse=0.9428  mae=0.7498  bias=+0.0887
+  epoch  13: train_mse=0.7852  test_rmse=0.9376  mae=0.7460  bias=+0.0654
+  epoch  14: train_mse=0.7824  test_rmse=0.9365  mae=0.7448  bias=+0.0611
+  epoch  15: train_mse=0.7798  test_rmse=0.9369  mae=0.7454  bias=+0.0573
+  epoch  16: train_mse=0.7767  test_rmse=0.9352  mae=0.7440  bias=+0.0555
+  epoch  17: train_mse=0.7733  test_rmse=0.9342  mae=0.7448  bias=+0.0249
+  epoch  18: train_mse=0.7701  test_rmse=0.9356  mae=0.7463  bias=+0.0386
+  epoch  19: train_mse=0.7673  test_rmse=0.9344  mae=0.7447  bias=+0.0433
+  epoch  20: train_mse=0.7649  test_rmse=0.9367  mae=0.7453  bias=+0.0695
+  epoch  21: train_mse=0.7629  test_rmse=0.9355  mae=0.7451  bias=+0.0717
+  epoch  22: train_mse=0.7610  test_rmse=0.9329  mae=0.7444  bias=+0.0440
+  epoch  23: train_mse=0.7587  test_rmse=0.9319  mae=0.7441  bias=+0.0395
+  epoch  24: train_mse=0.7555  test_rmse=0.9319  mae=0.7429  bias=+0.0704
+  epoch  25: train_mse=0.7521  test_rmse=0.9316  mae=0.7448  bias=+0.0398
+  epoch  26: train_mse=0.7506  test_rmse=0.9309  mae=0.7437  bias=+0.0303
+  epoch  27: train_mse=0.7487  test_rmse=0.9296  mae=0.7429  bias=+0.0381
+  epoch  28: train_mse=0.7476  test_rmse=0.9310  mae=0.7425  bias=+0.0497
+  epoch  29: train_mse=0.7462  test_rmse=0.9298  mae=0.7417  bias=+0.0476
+  epoch  30: train_mse=0.7449  test_rmse=0.9307  mae=0.7422  bias=+0.0417
+
+TwoTower best @ epoch 27: rmse=0.9296 mae=0.7429 bias=+0.0381 (elapsed=46.4 min)
+
+Saved: outputs/twotower_n2000_1776552445

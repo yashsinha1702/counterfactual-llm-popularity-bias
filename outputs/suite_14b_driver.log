@@ -1,0 +1,15 @@
+Log dir: outputs/suite_14b_n500_1776424046
+[1/3] main pipeline (baseline + CF alpha=0.5) ...
+[2/3] diverse baseline ...
+[3/3] TIPS alpha ablation ...
+ALL DONE — logs in outputs/suite_14b_n500_1776424046
+drwxrwxr-x  2 user group   4096 Apr 17 16:05 n500_1776420791
+-rw-rw-r--  1 user group   5334 Apr 17 16:25 RESULTS.md
+-rw-rw-r--  1 user group  32131 Apr 17 16:22 run_diverse_n500.log
+-rw-rw-r--  1 user group  56962 Apr 17 16:05 run_n500.log
+-rw-rw-r--  1 user group    566 Apr 17 14:30 run_n50.log
+drwxrwxr-x  2 user group   4096 Apr 17 13:34 smoke_1776412393
+-rw-rw-r--  1 user group    205 Apr 17 16:47 suite_14b_driver.log
+drwxrwxr-x  2 user group   4096 Apr 17 16:47 suite_14b_n500_1776424046
+-rw-rw-r--  1 user group 273732 Apr 17 16:47 vllm_server_14b.log
+-rw-rw-r--  1 user group 366474 Apr 17 16:35 vllm_server.log

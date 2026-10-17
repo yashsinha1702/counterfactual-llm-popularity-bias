@@ -1,0 +1,47 @@
+Loading data...
+  sampled=500
+
+[1/3] diverse_v2 (pros/cons + user stats)...
+diverse_v2:   0%|          | 0/500 [00:00<?, ?it/s]diverse_v2:  20%|██        | 102/500 [00:00<00:00, 1011.63it/s]diverse_v2:  41%|████      | 204/500 [00:00<00:00, 949.20it/s] diverse_v2:  60%|██████    | 300/500 [00:00<00:00, 836.74it/s]diverse_v2:  77%|███████▋  | 385/500 [00:00<00:00, 784.60it/s]diverse_v2:  93%|█████████▎| 465/500 [00:00<00:00, 767.27it/s]diverse_v2: 100%|██████████| 500/500 [00:00<00:00, 825.73it/s]
+
+[2/3] logprob expected-value (no user stats)...
+logprob_no_stats:   0%|          | 0/500 [00:00<?, ?it/s]logprob_no_stats:  18%|█▊        | 89/500 [00:00<00:00, 887.95it/s]logprob_no_stats:  40%|███▉      | 199/500 [00:00<00:00, 1010.96it/s]logprob_no_stats:  61%|██████    | 305/500 [00:00<00:00, 1032.02it/s]logprob_no_stats:  82%|████████▏ | 409/500 [00:00<00:00, 999.33it/s] logprob_no_stats: 100%|██████████| 500/500 [00:00<00:00, 1010.99it/s]
+
+[3/3] logprob expected-value (with user stats)...
+logprob_stats:   0%|          | 0/500 [00:00<?, ?it/s]logprob_stats:  15%|█▍        | 74/500 [00:00<00:00, 738.81it/s]logprob_stats:  30%|██▉       | 148/500 [00:00<00:00, 721.70it/s]logprob_stats:  45%|████▍     | 223/500 [00:00<00:00, 730.35it/s]logprob_stats:  59%|█████▉    | 297/500 [00:00<00:00, 711.60it/s]logprob_stats:  74%|███████▍  | 369/500 [00:00<00:00, 683.59it/s]logprob_stats:  88%|████████▊ | 439/500 [00:00<00:00, 688.29it/s]logprob_stats: 100%|██████████| 500/500 [00:00<00:00, 714.85it/s]
+Hybrid best alphas: {'SVD+diverse_v2': np.float64(1.0), 'SVD+logprob_no_stats': np.float64(1.0), 'SVD+logprob_stats': np.float64(1.0), 'ItemKNN+diverse_v2': np.float64(1.0), 'ItemKNN+logprob_no_stats': np.float64(1.0), 'ItemKNN+logprob_stats': np.float64(1.0)}
+  diverse_v2: rmse=1.1576 mae=0.8240 bias=+0.3520 mean_pred=3.722
+  logprob_no_stats: rmse=1.4499 mae=1.1003 bias=+0.8075 mean_pred=4.178
+  logprob_stats: rmse=1.3825 mae=1.0306 bias=+0.7404 mean_pred=4.110
+  hybrid_SVD_diverse_v2_a1.00: rmse=0.9740 mae=0.7537 bias=+0.1521 mean_pred=3.522
+  hybrid_SVD_logprob_no_stats_a1.00: rmse=0.9740 mae=0.7537 bias=+0.1521 mean_pred=3.522
+  hybrid_SVD_logprob_stats_a1.00: rmse=0.9740 mae=0.7537 bias=+0.1521 mean_pred=3.522
+  hybrid_ItemKNN_diverse_v2_a1.00: rmse=0.9299 mae=0.7079 bias=+0.1482 mean_pred=3.518
+  hybrid_ItemKNN_logprob_no_stats_a1.00: rmse=0.9299 mae=0.7079 bias=+0.1482 mean_pred=3.518
+  hybrid_ItemKNN_logprob_stats_a1.00: rmse=0.9299 mae=0.7079 bias=+0.1482 mean_pred=3.518
+  fixed_SVD_diverse_v2_a0.5: rmse=1.0265 mae=0.7815 bias=+0.2521 mean_pred=3.622
+  fixed_SVD_logprob_no_stats_a0.5: rmse=1.1250 mae=0.8569 bias=+0.4798 mean_pred=3.850
+  fixed_SVD_logprob_stats_a0.5: rmse=1.1062 mae=0.8339 bias=+0.4463 mean_pred=3.816
+  fixed_ItemKNN_diverse_v2_a0.5: rmse=1.0003 mae=0.7553 bias=+0.2501 mean_pred=3.620
+  fixed_ItemKNN_logprob_no_stats_a0.5: rmse=1.1048 mae=0.8400 bias=+0.4778 mean_pred=3.848
+  fixed_ItemKNN_logprob_stats_a0.5: rmse=1.0840 mae=0.8119 bias=+0.4443 mean_pred=3.814
+
+=== Improved LLM variants ===
+                               method     rmse      mae     bias  mean_pred
+                           diverse_v2 1.157584 0.824000 0.352000   3.722000
+                     logprob_no_stats 1.449911 1.100307 0.807532   4.177532
+                        logprob_stats 1.382496 1.030552 0.740435   4.110435
+          hybrid_SVD_diverse_v2_a1.00 0.974050 0.753698 0.152124   3.522124
+    hybrid_SVD_logprob_no_stats_a1.00 0.974050 0.753698 0.152124   3.522124
+       hybrid_SVD_logprob_stats_a1.00 0.974050 0.753698 0.152124   3.522124
+      hybrid_ItemKNN_diverse_v2_a1.00 0.929868 0.707903 0.148151   3.518151
+hybrid_ItemKNN_logprob_no_stats_a1.00 0.929868 0.707903 0.148151   3.518151
+   hybrid_ItemKNN_logprob_stats_a1.00 0.929868 0.707903 0.148151   3.518151
+            fixed_SVD_diverse_v2_a0.5 1.026521 0.781471 0.252062   3.622062
+      fixed_SVD_logprob_no_stats_a0.5 1.125040 0.856947 0.479828   3.849828
+         fixed_SVD_logprob_stats_a0.5 1.106164 0.833914 0.446279   3.816279
+        fixed_ItemKNN_diverse_v2_a0.5 1.000270 0.755285 0.250075   3.620075
+  fixed_ItemKNN_logprob_no_stats_a0.5 1.104823 0.839960 0.477842   3.847842
+     fixed_ItemKNN_logprob_stats_a0.5 1.083957 0.811923 0.444293   3.814293
+
+Saved: outputs/improved_n500_1776425985

@@ -1,0 +1,42 @@
+Building v3 features (tag=n2000)...
+  cfv2:        outputs/cfv2_n2000_1776428102/predictions.csv
+  cf_baseline: outputs/cf_baseline_n2000_1776428101/predictions.csv
+  diverse:            outputs/diverse_n2000_1776442083/predictions.csv
+  diverse_retrieval:  outputs/diverse_retrieval_n2000_72b_1776448595/predictions.csv
+  cfv2_retrieval:     outputs/cfv2_retrieval_n2000_72b_1776450114/predictions.csv
+  neumf:              outputs/neumf_n2000_1776531265/predictions.csv
+  lightgcn            : outputs/lightgcn_n2000_1776546172/predictions.csv
+  lightgcn_llminit    : outputs/lightgcn_llminit_n2000_1776669346/predictions.csv
+  bprmf               : outputs/bprmf_n2000_1776535451/predictions.csv
+  twotower            : outputs/twotower_n2000_1776552445/predictions.csv
+  soft_dist           : outputs/soft_dist_n2000_1776555345/predictions.csv
+  preference_cot_cal  : outputs/preference_cot_n2000_1776556256/predictions.csv
+  preference_cot_raw  : outputs/preference_cot_n2000_1776556256/predictions.csv
+  confidence_router   : outputs/confidence_router_n2000_1776558381/predictions.csv
+  diverse_retr_14b:   outputs/diverse_retrieval_n2000_14b_1776446353/predictions.csv
+  cfv2_retr_14b:      outputs/cfv2_retrieval_n2000_14b_1776446882/predictions.csv
+  diverse_retr_72b:   outputs/diverse_retrieval_n2000_72b_1776448595/predictions.csv
+  cfv2_retr_72b:      outputs/cfv2_retrieval_n2000_72b_1776450114/predictions.csv
+Traceback (most recent call last):
+  File "<site-packages>/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'pred_NeuMF_std'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "stacker_v3.py", line 418, in <module>
+    main()
+  File "stacker_v3.py", line 219, in main
+    df = build_features_v3(tag=args.tag, model_suffixes=model_suffixes)
+  File "stacker_v3.py", line 129, in build_features_v3
+    df["pred_NeuMF_std"] = df["pred_NeuMF_std"].fillna(0)
+  File "<site-packages>/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "<site-packages>/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'pred_NeuMF_std'

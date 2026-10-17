@@ -1,0 +1,77 @@
+[   0.0s] Loading master prediction table...
+  [loaded] cf_baseline_n2000_1776428101: +2000 rows, +5 pred cols
+  [loaded] cfv2_n2000_1776428102: +2000 rows, +2 pred cols
+  [loaded] cfv2_retrieval_n2000_14b_1776446882: +2000 rows, +2 pred cols
+  [loaded] cfv2_retrieval_n2000_72b_1776450114: +2000 rows, +2 pred cols
+  [loaded] diverse_n2000_1776442083: +2000 rows, +1 pred cols
+  [loaded] diverse_retrieval_n2000_14b_1776446353: +2000 rows, +1 pred cols
+  [loaded] diverse_retrieval_n2000_72b_1776448595: +2000 rows, +1 pred cols
+  [loaded] soft_dist_n2000_1776555345: +2000 rows, +1 pred cols
+  [loaded] preference_cot_n2000_1776556256: +2000 rows, +2 pred cols
+  [loaded] confidence_router_n2000_1776558381: +2000 rows, +1 pred cols
+  [loaded] neumf_n2000_1776531265: +2000 rows, +1 pred cols
+  [loaded] neumf_ens_v4_n2000_1776745616: +2000 rows, +1 pred cols
+  [loaded] bprmf_n2000_1776535451: +2000 rows, +1 pred cols
+  [loaded] lightgcn_n2000_1776539447: +2000 rows, +1 pred cols
+  [loaded] lightgcn_llminit_n2000_1776669346: +2000 rows, +1 pred cols
+  [loaded] twotower_n2000_1776552445: +2000 rows, +1 pred cols
+  [loaded] deepfm_n2000_1776709933: +2000 rows, +1 pred cols
+[   0.1s] master shape: (2000, 30)
+[   0.1s] rating coverage: 2000/2000
+[   0.1s] 25 prediction columns, 1045 positives / 2000 total (52.2%)
+
+[   0.1s] Evaluating ranking metrics per method...
+
+[   0.2s] eligible users: 278 (>=1 positive & >=2 total items)
+
+[   0.3s] pred_GlobalMean                     HR@1=0.6906  HR@3=0.9964  NDCG@5=0.8768  NDCG@10=0.8780  MRR=0.8363  (skipped 0 users)
+[   0.3s] pred_UserMean                       HR@1=0.6906  HR@3=0.9964  NDCG@5=0.8768  NDCG@10=0.8780  MRR=0.8363  (skipped 0 users)
+[   0.4s] pred_Baseline                       HR@1=0.8165  HR@3=0.9964  NDCG@5=0.9271  NDCG@10=0.9271  MRR=0.9044  (skipped 0 users)
+[   0.4s] pred_SVD                            HR@1=0.8453  HR@3=0.9964  NDCG@5=0.9385  NDCG@10=0.9385  MRR=0.9194  (skipped 0 users)
+[   0.5s] pred_ItemKNN                        HR@1=0.8669  HR@3=0.9964  NDCG@5=0.9470  NDCG@10=0.9470  MRR=0.9308  (skipped 0 users)
+[   0.5s] pred_cfv2_raw                       HR@1=0.8417  HR@3=0.9964  NDCG@5=0.9351  NDCG@10=0.9364  MRR=0.9167  (skipped 0 users)
+[   0.6s] pred_cfv2_cal                       HR@1=0.8417  HR@3=0.9964  NDCG@5=0.9351  NDCG@10=0.9364  MRR=0.9167  (skipped 0 users)
+[   0.6s] pred_cfv2_retr_raw_14b              HR@1=0.8633  HR@3=0.9964  NDCG@5=0.9443  NDCG@10=0.9443  MRR=0.9278  (skipped 0 users)
+[   0.7s] pred_cfv2_retr_cal_14b              HR@1=0.8633  HR@3=0.9964  NDCG@5=0.9443  NDCG@10=0.9443  MRR=0.9278  (skipped 0 users)
+[   0.7s] pred_cfv2_retr_raw_72b              HR@1=0.8669  HR@3=0.9964  NDCG@5=0.9470  NDCG@10=0.9470  MRR=0.9308  (skipped 0 users)
+[   0.7s] pred_cfv2_retr_cal_72b              HR@1=0.8669  HR@3=0.9964  NDCG@5=0.9470  NDCG@10=0.9470  MRR=0.9308  (skipped 0 users)
+[   0.8s] pred_diverse                        HR@1=0.7194  HR@3=0.9856  NDCG@5=0.8869  NDCG@10=0.8881  MRR=0.8498  (skipped 0 users)
+[   0.8s] pred_diverse_retr_14b               HR@1=0.7158  HR@3=0.9964  NDCG@5=0.8880  NDCG@10=0.8892  MRR=0.8519  (skipped 0 users)
+[   0.9s] pred_diverse_retr_72b               HR@1=0.6906  HR@3=0.9964  NDCG@5=0.8768  NDCG@10=0.8780  MRR=0.8363  (skipped 0 users)
+[   0.9s] pred_soft_dist                      HR@1=0.7158  HR@3=0.9928  NDCG@5=0.8867  NDCG@10=0.8893  MRR=0.8501  (skipped 0 users)
+[   1.0s] pred_PreferenceCoT_raw              HR@1=0.7050  HR@3=0.9928  NDCG@5=0.8817  NDCG@10=0.8830  MRR=0.8418  (skipped 0 users)
+[   1.0s] pred_PreferenceCoT_cal              HR@1=0.7050  HR@3=0.9928  NDCG@5=0.8817  NDCG@10=0.8830  MRR=0.8418  (skipped 0 users)
+[   1.1s] pred_ConfidenceRouter               HR@1=0.8453  HR@3=0.9928  NDCG@5=0.9380  NDCG@10=0.9380  MRR=0.9179  (skipped 0 users)
+[   1.1s] pred_NeuMF                          HR@1=0.8417  HR@3=0.9964  NDCG@5=0.9366  NDCG@10=0.9366  MRR=0.9158  (skipped 0 users)
+[   1.2s] pred_NeuMF_ens_avg                  HR@1=0.8525  HR@3=0.9964  NDCG@5=0.9395  NDCG@10=0.9395  MRR=0.9198  (skipped 0 users)
+[   1.2s] pred_BPRMF                          HR@1=0.8309  HR@3=1.0000  NDCG@5=0.9323  NDCG@10=0.9323  MRR=0.9107  (skipped 0 users)
+[   1.3s] pred_LightGCN                       HR@1=0.8309  HR@3=0.9964  NDCG@5=0.9329  NDCG@10=0.9329  MRR=0.9116  (skipped 0 users)
+[   1.3s] pred_LightGCN_llminit               HR@1=0.8417  HR@3=0.9964  NDCG@5=0.9369  NDCG@10=0.9369  MRR=0.9170  (skipped 0 users)
+[   1.4s] pred_TwoTower                       HR@1=0.8022  HR@3=0.9964  NDCG@5=0.9221  NDCG@10=0.9221  MRR=0.8966  (skipped 0 users)
+[   1.4s] pred_DeepFM_avg                     HR@1=0.8489  HR@3=0.9964  NDCG@5=0.9410  NDCG@10=0.9410  MRR=0.9212  (skipped 0 users)
+
+[   1.4s] Done. Wrote:
+  outputs/ranking_eval/ranking_results.csv
+  outputs/ranking_eval/ranking_per_bucket.csv
+  outputs/ranking_eval/summary.json
+
+=== Top 10 by NDCG@10 ===
+                method     hr@1     hr@3  hr@5   ndcg@5  ndcg@10      mrr
+pred_cfv2_retr_raw_72b 0.866906 0.996403   1.0 0.946969 0.946969 0.930755
+pred_cfv2_retr_cal_72b 0.866906 0.996403   1.0 0.946969 0.946969 0.930755
+          pred_ItemKNN 0.866906 0.996403   1.0 0.946969 0.946969 0.930755
+pred_cfv2_retr_raw_14b 0.863309 0.996403   1.0 0.944320 0.944320 0.927758
+pred_cfv2_retr_cal_14b 0.863309 0.996403   1.0 0.944320 0.944320 0.927758
+       pred_DeepFM_avg 0.848921 0.996403   1.0 0.940963 0.940963 0.921163
+    pred_NeuMF_ens_avg 0.852518 0.996403   1.0 0.939460 0.939460 0.919784
+              pred_SVD 0.845324 0.996403   1.0 0.938545 0.938545 0.919365
+ pred_ConfidenceRouter 0.845324 0.992806   1.0 0.937999 0.937999 0.917866
+ pred_LightGCN_llminit 0.841727 0.996403   1.0 0.936931 0.936931 0.916966
+
+=== Bottom 5 by NDCG@10 ===
+                method     hr@1     hr@3     hr@5   ndcg@5  ndcg@10      mrr
+pred_PreferenceCoT_cal 0.705036 0.992806 0.996403 0.881684 0.882965 0.841847
+pred_PreferenceCoT_raw 0.705036 0.992806 0.996403 0.881684 0.882965 0.841847
+ pred_diverse_retr_72b 0.690647 0.996403 0.996403 0.876782 0.878015 0.836331
+         pred_UserMean 0.690647 0.996403 0.996403 0.876782 0.878015 0.836331
+       pred_GlobalMean 0.690647 0.996403 0.996403 0.876782 0.878015 0.836331

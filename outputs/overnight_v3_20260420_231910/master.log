@@ -1,0 +1,128 @@
+[23:19:10] Overnight v3 started: Mon Apr 20 11:19:10 PM IST 2026
+[23:19:10] GPU: NVIDIA H100 NVL, 95830 MiB
+[23:19:10] Logs: outputs/overnight_v3_20260420_231910
+[23:19:10] 
+[23:19:10] === START: 01_neumf_ensemble ===
+[23:19:10]   cmd: python -u neumf_ensemble.py --n 2000 --seed 0 --tag n2000 --epochs 40 --device cuda
+
+--- Training d64_s4 (dim=64, mlp=(128, 64, 32), drop=0.1, lr=0.001) ---
+  → rmse=0.8934 mae=0.7042 bias=+0.0276 epoch=19 (322s)
+
+--- Training d128_s0 (dim=128, mlp=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  → rmse=0.9106 mae=0.7191 bias=+0.0255 epoch=20 (326s)
+
+--- Training d128_s1 (dim=128, mlp=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  → rmse=0.9062 mae=0.7134 bias=+0.0265 epoch=32 (325s)
+
+--- Training d128_s2 (dim=128, mlp=(256, 128, 64), drop=0.15, lr=0.0008) ---
+  → rmse=0.9112 mae=0.7180 bias=+0.0345 epoch=31 (325s)
+
+  Ensemble avg_d64: rmse=0.8909 mae=0.7022 bias=+0.0278
+
+  Ensemble avg_d128: rmse=0.9082 mae=0.7159 bias=+0.0288
+
+  Ensemble avg_all: rmse=0.8902 mae=0.7023 bias=+0.0282
+
+Saved: outputs/neumf_ensemble_n2000_1776707351 (43.0 min total)
+[00:02:12] === END:   01_neumf_ensemble (exit 0) ===
+
+[00:02:12] === START: 02_deepfm ===
+[00:02:12]   cmd: python -u deepfm.py --n 2000 --seed 0 --tag n2000 --epochs 50 --dim 64 --device cuda
+  epoch   1: train_mse=0.9934 test_rmse=0.9554
+  epoch  11: train_mse=0.6606 test_rmse=0.9823
+  epoch  21: train_mse=0.6223 test_rmse=0.9831
+  epoch  31: train_mse=0.5842 test_rmse=0.9809
+  epoch  41: train_mse=0.5594 test_rmse=0.9797
+  epoch  50: train_mse=0.5537 test_rmse=0.9806
+  → rmse=0.9554 mae=0.7600 bias=+0.0339 epoch=1 (53s)
+
+--- DeepFM d96_s1 (dim=96, deep=(256, 128, 64), drop=0.2, lr=0.0006) ---
+  epoch   1: train_mse=0.9927 test_rmse=0.9550
+  epoch  11: train_mse=0.6643 test_rmse=0.9872
+  epoch  21: train_mse=0.6207 test_rmse=0.9797
+  epoch  31: train_mse=0.5807 test_rmse=0.9751
+  epoch  41: train_mse=0.5580 test_rmse=0.9782
+  epoch  50: train_mse=0.5518 test_rmse=0.9797
+  → rmse=0.9550 mae=0.7599 bias=+0.0357 epoch=1 (53s)
+
+  DeepFM ensemble avg: rmse=0.9312 mae=0.7328 bias=+0.0008
+
+Saved: outputs/deepfm_n2000_1776709933 (4.7 min total)
+[00:06:57] === END:   02_deepfm (exit 0) ===
+
+[00:06:57] === START: 03_residual_neumf ===
+[00:06:57]   cmd: python -u residual_neumf.py --n 2000 --seed 0 --tag n2000 --epochs 40 --residual_epochs 30 --device cuda
+Loading data...
+  n_users=6040 n_items=3669
+
+=== Stage 1: Primary NeuMF ===
+  epoch 1: rmse=0.9591
+  epoch 11: rmse=0.8985
+  epoch 21: rmse=0.8956
+  epoch 31: rmse=0.8959
+  Primary NeuMF: rmse=0.8928
+
+  Training residuals: mean=0.0035 std=0.7625
+
+=== Stage 2: Residual NeuMF ===
+  res_s0: combined rmse=0.8928 (primary was 0.8928, delta=+0.0000)
+  res_s1: combined rmse=0.8928 (primary was 0.8928, delta=-0.0001)
+  res_s2: combined rmse=0.8928 (primary was 0.8928, delta=-0.0000)
+
+  Residual ensemble avg: rmse=0.8928
+
+Saved: outputs/residual_neumf_n2000_1776710219 (17.8 min)
+[00:24:47] === END:   03_residual_neumf (exit 0) ===
+
+[00:24:47] === START: 04_stacker_v2_baseline ===
+[00:24:47]   cmd: python -u stacker.py --tag n2000 --model_suffixes 14b,72b
+         pred_Baseline -0.1338
+          pred_diverse  0.0963
+         pred_UserMean  0.0773
+        user_mean_hist  0.0773
+       knn_vs_usermean  0.0721
+      llm_pop_reliance  0.0542
+               log_pop  0.0451
+      pop_x_cfv2_delta -0.0376
+      llm_plausibility  0.0374
+        llm_confidence  0.0178
+             item_mean -0.0172
+              pred_SVD -0.0157
+     cfv2_delta_vs_knn  0.0119
+            dir_higher  0.0047
+             dir_lower  0.0034
+         llm_delta_raw  0.0006
+     user_rating_count -0.0001
+pred_diverse_retrieval  0.0000
+
+Saved: outputs/stacker
+[00:26:21] === END:   04_stacker_v2_baseline (exit 0) ===
+
+[00:26:21] === START: 05_stacker_v3 ===
+[00:26:21]   cmd: python -u stacker_v3.py --tag n2000 --model_suffixes 14b,72b
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'pred_NeuMF_std'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "stacker_v3.py", line 418, in <module>
+    main()
+  File "stacker_v3.py", line 219, in main
+    df = build_features_v3(tag=args.tag, model_suffixes=model_suffixes)
+  File "stacker_v3.py", line 129, in build_features_v3
+    df["pred_NeuMF_std"] = df["pred_NeuMF_std"].fillna(0)
+  File "<site-packages>/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "<site-packages>/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'pred_NeuMF_std'
+[00:26:25] === END:   05_stacker_v3 (exit 1) ===
+
+[00:26:25] 
+[00:26:25] Overnight v3 finished: Tue Apr 21 12:26:25 AM IST 2026
+[00:26:25] Logs: outputs/overnight_v3_20260420_231910
+[00:26:25] Final leaderboard in outputs/overnight_v3_20260420_231910/05_stacker_v3.log

@@ -1,0 +1,100 @@
+[22:49:11] Overnight dual-model run started: 20260417_224911
+[22:49:11] Log directory: outputs/overnight_20260417_224911
+
+[22:49:11] === START: 01_embed_movies ===
+[22:49:11]   cmd: python -u embed_movies.py
+
+[22:49:12] === END:   01_embed_movies (exit 0) ===
+Saved (3883, 2019) embeddings for 3883 movies to outputs/embeddings
+  tfidf dim=2000  genres=18  + year
+
+[22:49:12] === Launching NeuMF (CPU) in background ===
+[22:49:12]   NeuMF PID 3772380 (will sync at end)
+
+[22:49:12] === START: 03_14b_diverse_retrieval_n2000 ===
+[22:49:12]   cmd: CF_LLM_MODEL=Qwen/Qwen2.5-14B-Instruct python -u run_diverse_retrieval.py --n 2000 --concurrency 16 --seed 0 --tag n2000_14b
+
+[22:58:01] === END:   03_14b_diverse_retrieval_n2000 (exit 0) ===
+  bucket_0 (n=400, pop=81.7): rmse=1.1937 bias=+0.4250
+  bucket_1 (n=400, pop=226.2): rmse=1.0630 bias=+0.2750
+  bucket_2 (n=400, pop=409.1): rmse=1.0062 bias=+0.1925
+  bucket_3 (n=400, pop=690.0): rmse=1.0025 bias=+0.0550
+  bucket_4 (n=400, pop=1343.0): rmse=0.9899 bias=-0.0050
+Saved: outputs/diverse_retrieval_n2000_14b_1776446353
+
+[22:58:01] === START: 04_14b_cfv2_retrieval_n2000 ===
+[22:58:01]   cmd: CF_LLM_MODEL=Qwen/Qwen2.5-14B-Instruct python -u run_cf_v2_retrieval.py --n 2000 --concurrency 16 --seed 0 --alpha 0.5 --calibrate --tag n2000_14b
+
+[23:26:04] === END:   04_14b_cfv2_retrieval_n2000 (exit 0) ===
+
+CFv2_retr (raw):     rmse=1.0448 mae=0.8025 bias=+0.5211 mean_pred=3.958
+ItemKNN reference:   rmse=0.9012 mae=0.7095 bias=+0.0875
+CFv2_retr (bias-cal, shift=-0.521): rmse=0.9032 mae=0.7152 bias=+0.0036
+
+Saved: outputs/cfv2_retrieval_n2000_14b_1776446882
+
+[23:26:04] === Switching vLLM: 14B -> 72B on GPU 1 ===
+[23:26:04]   killing vLLM PID 3692188 ...
+[23:26:34]   launching 72B server ...
+[23:26:34]   waiting for 72B readiness ...
+[23:26:34]   72B ready.
+
+[23:26:34] === START: 05_72b_diverse_retrieval_n2000 ===
+[23:26:34]   cmd: CF_LLM_MODEL=Qwen/Qwen2.5-72B-Instruct-AWQ python -u run_diverse_retrieval.py --n 2000 --concurrency 12 --seed 0 --tag n2000_72b
+
+[23:51:54] === END:   05_72b_diverse_retrieval_n2000 (exit 0) ===
+  bucket_0 (n=400, pop=81.7): rmse=1.2400 bias=-0.0075
+  bucket_1 (n=400, pop=226.2): rmse=1.1630 bias=-0.2525
+  bucket_2 (n=400, pop=409.1): rmse=1.1758 bias=-0.4275
+  bucket_3 (n=400, pop=690.0): rmse=1.2649 bias=-0.6600
+  bucket_4 (n=400, pop=1343.0): rmse=1.3342 bias=-0.8350
+Saved: outputs/diverse_retrieval_n2000_72b_1776448595
+
+[23:51:54] === START: 06_72b_cfv2_retrieval_n2000 ===
+[23:51:54]   cmd: CF_LLM_MODEL=Qwen/Qwen2.5-72B-Instruct-AWQ python -u run_cf_v2_retrieval.py --n 2000 --concurrency 12 --seed 0 --alpha 0.5 --calibrate --tag n2000_72b
+
+[00:17:14] === END:   06_72b_cfv2_retrieval_n2000 (exit 0) ===
+
+CFv2_retr (raw):     rmse=0.9012 mae=0.7095 bias=+0.0875 mean_pred=3.524
+ItemKNN reference:   rmse=0.9012 mae=0.7095 bias=+0.0875
+CFv2_retr (bias-cal, shift=-0.088): rmse=0.8969 mae=0.7110 bias=+0.0001
+
+Saved: outputs/cfv2_retrieval_n2000_72b_1776450114
+
+[00:17:14] === Waiting for NeuMF to finish ===
+[00:17:14]   NeuMF finished.
+  epoch  24: train_mse=0.5349  test_rmse=0.9020
+  epoch  25: train_mse=0.5243  test_rmse=0.9084
+
+NeuMF best @ epoch 15: rmse=0.8925 mae=0.7046 bias=+0.0339 mean_pred=3.470 (elapsed=47.2 min)
+  bucket_0 (n=400, pop=81.7): rmse=0.9563 bias=+0.0663
+  bucket_1 (n=400, pop=226.2): rmse=0.8941 bias=+0.0572
+  bucket_2 (n=400, pop=409.1): rmse=0.8672 bias=+0.0001
+  bucket_3 (n=400, pop=690.0): rmse=0.8898 bias=+0.0258
+  bucket_4 (n=400, pop=1343.0): rmse=0.8514 bias=+0.0203
+Saved: outputs/neumf_n2000_1776446353
+
+[00:17:14] === START: 07_final_stacker ===
+[00:17:14]   cmd: python -u stacker.py --tag n2000 --model_suffixes 14b,72b
+
+[00:18:19] === END:   07_final_stacker (exit 0) ===
+         llm_delta_raw -0.0039
+            dir_higher  0.0011
+pred_diverse_retrieval  0.0000
+     user_rating_count -0.0000
+
+Saved: outputs/stacker
+
+[00:18:19] === START: 08_routed_hybrid ===
+[00:18:19]   cmd: python -u routed_hybrid.py --tag n2000
+
+[00:18:20] === END:   08_routed_hybrid (exit 0) ===
+          0.75 0.8992 0.7104 0.0662
+          0.80 0.8991 0.7098 0.0704
+          0.85 0.8992 0.7094 0.0747
+          0.90 0.8995 0.7092 0.0790
+          0.95 0.9002 0.7092 0.0833
+          1.00 0.9012 0.7095 0.0875
+[00:18:20] Overnight run finished: Sat Apr 18 12:18:20 AM IST 2026
+[00:18:20] All logs: outputs/overnight_20260417_224911
+[00:18:20] Key numbers in outputs/overnight_20260417_224911/07_final_stacker.log

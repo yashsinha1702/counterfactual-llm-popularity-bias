@@ -1,0 +1,20 @@
+Loading data...
+  n_users=6040 n_items=3669
+
+=== Stage 1: Primary NeuMF ===
+  epoch 1: rmse=0.9591
+  epoch 11: rmse=0.8985
+  epoch 21: rmse=0.8956
+  epoch 31: rmse=0.8959
+  Primary NeuMF: rmse=0.8928
+
+  Training residuals: mean=0.0035 std=0.7625
+
+=== Stage 2: Residual NeuMF ===
+  res_s0: combined rmse=0.8928 (primary was 0.8928, delta=+0.0000)
+  res_s1: combined rmse=0.8928 (primary was 0.8928, delta=-0.0001)
+  res_s2: combined rmse=0.8928 (primary was 0.8928, delta=-0.0000)
+
+  Residual ensemble avg: rmse=0.8928
+
+Saved: outputs/residual_neumf_n2000_1776710219 (17.8 min)

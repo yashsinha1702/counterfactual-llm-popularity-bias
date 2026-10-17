@@ -1,0 +1,20 @@
+Loading ratings...
+  train=797,758 test_sampled=2000 users_train=6040 movies_train=3667
+Baselines ALS fit in 0.1s
+SVD (k=50) fit in 0.6s
+ItemKNN cosine sims in 0.7s
+  GlobalMean  : rmse=1.1715 mae=0.9657 bias=+0.1804 mean_pred=3.617
+  UserMean    : rmse=1.0839 mae=0.8642 bias=+0.1873 mean_pred=3.624
+  Baseline    : rmse=0.9539 mae=0.7599 bias=+0.0799 mean_pred=3.516
+  SVD         : rmse=0.9378 mae=0.7425 bias=+0.0873 mean_pred=3.524
+  ItemKNN     : rmse=0.9012 mae=0.7095 bias=+0.0875 mean_pred=3.524
+
+=== Bias by popularity bucket ===
+    method bucket_0 bucket_1 bucket_2 bucket_3 bucket_4
+GlobalMean   +0.609   +0.364   +0.189   -0.043   -0.218
+  UserMean   +0.552   +0.341   +0.163   +0.024   -0.144
+  Baseline   +0.190   +0.112   -0.008   +0.039   +0.066
+       SVD   +0.190   +0.110   +0.011   +0.043   +0.082
+   ItemKNN   +0.188   +0.095   +0.023   +0.062   +0.070
+
+Saved: outputs/cf_baseline_n2000_1776428101

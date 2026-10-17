@@ -1,0 +1,23 @@
+# Core (data, classical CF, stackers, evaluation)
+numpy
+pandas
+scipy
+scikit-learn
+lightgbm
+tqdm
+
+# Neural CF baselines (NeuMF, BPR-MF, LightGCN, Two-Tower, DeepFM)
+torch
+
+# LLM client (any OpenAI-compatible endpoint, e.g. vLLM)
+openai
+
+# LLM item-embedding step (embed_llm_items.py falls back to TF-IDF if unavailable)
+sentence-transformers
+
+# Figures and notebook
+matplotlib
+seaborn
+
+# The LLM server itself runs on a GPU host and is installed separately:
+#   pip install vllm   (experiments used vLLM 0.19.0)

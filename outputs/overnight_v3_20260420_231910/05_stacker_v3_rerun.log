@@ -1,0 +1,131 @@
+Building v3 features (tag=n2000)...
+  cfv2:        outputs/cfv2_n2000_1776428102/predictions.csv
+  cf_baseline: outputs/cf_baseline_n2000_1776428101/predictions.csv
+  diverse:            outputs/diverse_n2000_1776442083/predictions.csv
+  diverse_retrieval:  outputs/diverse_retrieval_n2000_72b_1776448595/predictions.csv
+  cfv2_retrieval:     outputs/cfv2_retrieval_n2000_72b_1776450114/predictions.csv
+  neumf:              outputs/neumf_n2000_1776531265/predictions.csv
+  lightgcn            : outputs/lightgcn_n2000_1776546172/predictions.csv
+  lightgcn_llminit    : outputs/lightgcn_llminit_n2000_1776669346/predictions.csv
+  bprmf               : outputs/bprmf_n2000_1776535451/predictions.csv
+  twotower            : outputs/twotower_n2000_1776552445/predictions.csv
+  soft_dist           : outputs/soft_dist_n2000_1776555345/predictions.csv
+  preference_cot_cal  : outputs/preference_cot_n2000_1776556256/predictions.csv
+  preference_cot_raw  : outputs/preference_cot_n2000_1776556256/predictions.csv
+  confidence_router   : outputs/confidence_router_n2000_1776558381/predictions.csv
+  diverse_retr_14b:   outputs/diverse_retrieval_n2000_14b_1776446353/predictions.csv
+  cfv2_retr_14b:      outputs/cfv2_retrieval_n2000_14b_1776446882/predictions.csv
+  diverse_retr_72b:   outputs/diverse_retrieval_n2000_72b_1776448595/predictions.csv
+  cfv2_retr_72b:      outputs/cfv2_retrieval_n2000_72b_1776450114/predictions.csv
+  neumf_ensemble: outputs/neumf_ensemble_n2000_1776707351/predictions.csv (11 models)
+  deepfm: outputs/deepfm_n2000_1776709933/predictions.csv (6 models)
+  residual_neumf: outputs/residual_neumf_n2000_1776710219/predictions.csv (4 models)
+  Computing genre affinity features...
+  Meta-features from 44 prediction columns
+  n=2000  mean_rating=3.437
+
+=== Ridge Stacker (5-fold CV) ===
+
+=== LightGBM Stacker (5-fold CV) ===
+
+=== Blended Ridge + LightGBM ===
+
+=== Full Leaderboard ===
+      features                    model   rmse    mae    bias  n_feats
+       v2_best           Ridge(α=100.0) 0.8764 0.6945  0.0002       29
+       v2_best                  RidgeCV 0.8771 0.6941  0.0001       29
+       v2_best Blend(Ridge=0.7+LGB=0.3) 0.8773 0.6969 -0.0001       29
+       v2_best            Ridge(α=10.0) 0.8777 0.6939 -0.0000       29
+        v3_all           Ridge(α=100.0) 0.8780 0.6937 -0.0004       61
+v3_cf_ensemble            Ridge(α=10.0) 0.8787 0.6951 -0.0011       17
+    v3_focused           Ridge(α=100.0) 0.8787 0.6965 -0.0005       27
+       v2_best Blend(Ridge=0.5+LGB=0.5) 0.8789 0.7003 -0.0002       29
+v3_cf_ensemble           Ridge(α=100.0) 0.8790 0.6965 -0.0004       17
+       v2_best             Ridge(α=1.0) 0.8796 0.6951 -0.0005       29
+v3_cf_ensemble             Ridge(α=1.0) 0.8798 0.6956 -0.0016       17
+    v3_focused            Ridge(α=10.0) 0.8801 0.6964 -0.0011       27
+        v3_all                  RidgeCV 0.8803 0.6959 -0.0004       61
+    v3_focused Blend(Ridge=0.7+LGB=0.3) 0.8804 0.6999 -0.0012       27
+v3_cf_ensemble                  RidgeCV 0.8805 0.6966 -0.0008       17
+    v3_focused                  RidgeCV 0.8805 0.6977 -0.0006       27
+v3_cf_ensemble Blend(Ridge=0.7+LGB=0.3) 0.8805 0.6983  0.0008       17
+        v3_all Blend(Ridge=0.7+LGB=0.3) 0.8806 0.6984 -0.0009       61
+        v3_all            Ridge(α=10.0) 0.8811 0.6938 -0.0009       61
+    v3_focused             Ridge(α=1.0) 0.8814 0.6974 -0.0017       27
+       v2_best Blend(Ridge=0.3+LGB=0.7) 0.8815 0.7044 -0.0003       29
+v3_cf_ensemble Blend(Ridge=0.5+LGB=0.5) 0.8817 0.7005  0.0018       17
+    v3_focused Blend(Ridge=0.5+LGB=0.5) 0.8818 0.7025 -0.0016       27
+        v3_all Blend(Ridge=0.5+LGB=0.5) 0.8822 0.7013 -0.0013       61
+       v2_best         lgb_conservative 0.8836 0.7075  0.0027       29
+v3_cf_ensemble Blend(Ridge=0.3+LGB=0.7) 0.8840 0.7035  0.0028       17
+    v3_focused Blend(Ridge=0.3+LGB=0.7) 0.8844 0.7060 -0.0020       27
+        v3_all         lgb_conservative 0.8846 0.7058  0.0008       61
+        v3_all Blend(Ridge=0.3+LGB=0.7) 0.8848 0.7049 -0.0016       61
+v3_cf_ensemble         lgb_conservative 0.8852 0.7065  0.0034       17
+    v3_focused         lgb_conservative 0.8855 0.7082  0.0007       27
+        v3_all             Ridge(α=1.0) 0.8866 0.6958 -0.0017       61
+       v2_best              lgb_default 0.8876 0.7122 -0.0005       29
+v3_cf_ensemble              lgb_default 0.8893 0.7093  0.0043       17
+    v3_focused              lgb_default 0.8906 0.7126 -0.0025       27
+        v3_all              lgb_default 0.8908 0.7117 -0.0021       61
+        v3_all                 lgb_deep 0.8908 0.7139  0.0004       61
+v3_cf_ensemble                 lgb_deep 0.8920 0.7128  0.0031       17
+       v2_best                 lgb_deep 0.8932 0.7169  0.0038       29
+    v3_focused                 lgb_deep 0.8939 0.7138  0.0037       27
+
+=== Best Ridge: coefficient inspection ===
+  Feature set: v3_focused (27 feats)
+  Alpha: 109.8541  Intercept: -0.3870
+               feature    coef
+            pred_NeuMF  0.2170
+            pred_BPRMF  0.1551
+    pred_cfv2_retr_14b  0.1533
+          pred_diverse  0.0796
+   genre_affinity_mean  0.0783
+    pred_NeuMF_avg_d64  0.0782
+    pred_cfv2_retr_72b  0.0768
+          pred_ItemKNN  0.0767
+         pred_Baseline -0.0753
+pred_ResidualNeuMF_avg  0.0753
+       pred_DeepFM_avg  0.0625
+    pred_NeuMF_avg_all  0.0580
+       knn_vs_usermean  0.0561
+         pred_cfv2_cal  0.0488
+             item_mean -0.0325
+               log_pop  0.0285
+     cfv2_delta_vs_knn -0.0279
+       meta_pred_range -0.0267
+   pred_NeuMF_avg_d128  0.0243
+              pred_SVD -0.0215
+         pred_UserMean  0.0206
+        user_mean_hist  0.0206
+         meta_pred_std  0.0133
+     n_matching_genres -0.0129
+    genre_affinity_std  0.0097
+  genre_affinity_count -0.0007
+     user_rating_count  0.0001
+
+=== LightGBM Feature Importance ===
+               feature  importance
+            pred_NeuMF 6518.661121
+            pred_BPRMF 2861.824222
+pred_ResidualNeuMF_avg 2855.015373
+   pred_NeuMF_avg_d128 2652.879733
+    pred_cfv2_retr_14b 1547.641097
+    pred_NeuMF_avg_d64 1451.339129
+       meta_pred_range  926.664023
+             item_mean  901.093498
+          pred_ItemKNN  873.201004
+         pred_UserMean  781.759404
+    pred_NeuMF_avg_all  764.466197
+  genre_affinity_count  749.276875
+       pred_DeepFM_avg  748.169859
+   genre_affinity_mean  705.035871
+       knn_vs_usermean  663.448274
+    genre_affinity_std  653.499290
+         meta_pred_std  641.606988
+               log_pop  622.598948
+     user_rating_count  621.787173
+              pred_SVD  603.098489
+
+Saved: outputs/stacker_v3

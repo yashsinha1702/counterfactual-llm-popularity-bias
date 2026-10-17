@@ -1,0 +1,119 @@
+Loading predictions + metadata (tag=n2000, suffixes=['14b', '72b'])...
+  cfv2:        outputs/cfv2_n2000_1776428102/predictions.csv
+  cf_baseline: outputs/cf_baseline_n2000_1776428101/predictions.csv
+  diverse:            outputs/diverse_n2000_1776442083/predictions.csv
+  diverse_retrieval:  outputs/diverse_retrieval_n2000_72b_1776448595/predictions.csv
+  cfv2_retrieval:     outputs/cfv2_retrieval_n2000_72b_1776450114/predictions.csv
+  neumf:              outputs/neumf_n2000_1776446353/predictions.csv
+  diverse_retr_14b:   outputs/diverse_retrieval_n2000_14b_1776446353/predictions.csv
+  cfv2_retr_14b:      outputs/cfv2_retrieval_n2000_14b_1776446882/predictions.csv
+  diverse_retr_72b:   outputs/diverse_retrieval_n2000_72b_1776448595/predictions.csv
+  cfv2_retr_72b:      outputs/cfv2_retrieval_n2000_72b_1776450114/predictions.csv
+  n=2000  mean_rating=3.437
+
+=== Base methods (no stacking) ===
+  method   rmse    mae   bias
+ ItemKNN 0.9012 0.7095 0.0875
+cfv2_cal 0.9354 0.7401 0.0020
+     SVD 0.9378 0.7425 0.0873
+Baseline 0.9539 0.7599 0.0799
+UserMean 1.0839 0.8642 0.1873
+
+=== Stacked ridge regression (5-fold CV) ===
+                features          model   rmse    mae    bias  n_feats
+        mega_both_models  Ridge(α=10.0) 0.8811 0.6991 -0.0003       17
+        mega_both_models Ridge(α=100.0) 0.8813 0.6996 -0.0002       17
+        mega_both_models        RidgeCV 0.8816 0.6995 -0.0003       17
+        mega_both_models   Ridge(α=1.0) 0.8818 0.6994 -0.0005       17
+        mega_both_models   Ridge(α=0.1) 0.8819 0.6995 -0.0005       17
+                 max_all  Ridge(α=10.0) 0.8824 0.6982 -0.0004       23
+                 max_all        RidgeCV 0.8825 0.6983 -0.0006       23
+with_retrieval_and_neumf  Ridge(α=10.0) 0.8827 0.6988 -0.0004       15
+                 max_all   Ridge(α=1.0) 0.8830 0.6987 -0.0006       23
+with_retrieval_and_neumf   Ridge(α=1.0) 0.8831 0.6989 -0.0005       15
+with_retrieval_and_neumf   Ridge(α=0.1) 0.8832 0.6990 -0.0006       15
+with_retrieval_and_neumf        RidgeCV 0.8833 0.6992 -0.0004       15
+                 max_all   Ridge(α=0.1) 0.8833 0.6989 -0.0007       23
+                 max_all Ridge(α=100.0) 0.8837 0.6996 -0.0003       23
+with_retrieval_and_neumf Ridge(α=100.0) 0.8839 0.7007 -0.0002       15
+              everything        RidgeCV 0.8952 0.7058 -0.0000       20
+              everything  Ridge(α=10.0) 0.8953 0.7058 -0.0000       20
+              everything   Ridge(α=1.0) 0.8956 0.7061 -0.0002       20
+              everything   Ridge(α=0.1) 0.8957 0.7064 -0.0003       20
+        all_plus_diverse  Ridge(α=10.0) 0.8959 0.7068  0.0002       12
+        all_plus_diverse   Ridge(α=0.1) 0.8959 0.7065  0.0001       12
+        all_plus_diverse   Ridge(α=1.0) 0.8959 0.7064  0.0001       12
+        all_plus_diverse        RidgeCV 0.8960 0.7065  0.0001       12
+       all_plus_llm_meta        RidgeCV 0.8961 0.7064  0.0004       19
+       all_plus_llm_meta  Ridge(α=10.0) 0.8962 0.7063  0.0003       19
+                 cf_only   Ridge(α=1.0) 0.8962 0.7061  0.0009        8
+                 cf_only        RidgeCV 0.8963 0.7062  0.0009        8
+                 cf_only   Ridge(α=0.1) 0.8963 0.7061  0.0009        8
+       all_plus_llm_meta   Ridge(α=1.0) 0.8964 0.7066  0.0002       19
+                 cf_only  Ridge(α=10.0) 0.8965 0.7070  0.0009        8
+       all_plus_llm_meta   Ridge(α=0.1) 0.8966 0.7069  0.0002       19
+   cf_plus_cfv2_interact        RidgeCV 0.8967 0.7068  0.0005       12
+   cf_plus_cfv2_interact  Ridge(α=10.0) 0.8968 0.7069  0.0005       12
+            cf_plus_cfv2   Ridge(α=1.0) 0.8969 0.7074  0.0005        9
+            cf_plus_cfv2   Ridge(α=0.1) 0.8970 0.7073  0.0005        9
+            cf_plus_cfv2        RidgeCV 0.8970 0.7074  0.0004        9
+   cf_plus_cfv2_interact   Ridge(α=1.0) 0.8970 0.7069  0.0004       12
+            cf_plus_cfv2  Ridge(α=10.0) 0.8971 0.7083  0.0004        9
+   cf_plus_cfv2_interact   Ridge(α=0.1) 0.8971 0.7070  0.0004       12
+              everything Ridge(α=100.0) 0.8981 0.7090 -0.0001       20
+       all_plus_llm_meta Ridge(α=100.0) 0.8992 0.7099  0.0002       19
+        all_plus_diverse Ridge(α=100.0) 0.8993 0.7113  0.0000       12
+   cf_plus_cfv2_interact Ridge(α=100.0) 0.8997 0.7106  0.0002       12
+            cf_plus_cfv2 Ridge(α=100.0) 0.9029 0.7157  0.0003        9
+                 cf_only Ridge(α=100.0) 0.9054 0.7174  0.0005        8
+
+=== Gradient Boosting + Random Forest ===
+                features         model   rmse    mae    bias  n_feats
+        mega_both_models  RandomForest 0.8931 0.7135  0.0026       17
+                 max_all  RandomForest 0.8957 0.7138  0.0038       23
+with_retrieval_and_neumf  RandomForest 0.8967 0.7145  0.0042       15
+        mega_both_models GradientBoost 0.8984 0.7140 -0.0040       17
+with_retrieval_and_neumf GradientBoost 0.9045 0.7173 -0.0010       15
+                 cf_only  RandomForest 0.9055 0.7231  0.0031        8
+                 max_all GradientBoost 0.9082 0.7229 -0.0026       23
+            cf_plus_cfv2  RandomForest 0.9083 0.7244  0.0019        9
+        all_plus_diverse  RandomForest 0.9105 0.7261  0.0014       12
+              everything  RandomForest 0.9108 0.7274  0.0008       20
+       all_plus_llm_meta  RandomForest 0.9111 0.7275  0.0013       19
+   cf_plus_cfv2_interact  RandomForest 0.9124 0.7281  0.0013       12
+                 cf_only GradientBoost 0.9151 0.7265 -0.0013        8
+            cf_plus_cfv2 GradientBoost 0.9163 0.7273  0.0004        9
+        all_plus_diverse GradientBoost 0.9183 0.7255 -0.0003       12
+       all_plus_llm_meta GradientBoost 0.9225 0.7331 -0.0000       19
+   cf_plus_cfv2_interact GradientBoost 0.9231 0.7312  0.0001       12
+              everything GradientBoost 0.9242 0.7311 -0.0007       20
+
+=== Best stacker: coefficient inspection (RidgeCV on richest feature set) ===
+  using feature set: max_all (23 feats)
+  Selected alpha: 26.8270   intercept: -1.1836
+               feature    coef
+            pred_NeuMF  0.4870
+         pred_cfv2_cal  0.1853
+         pred_Baseline -0.1735
+        pred_cfv2_retr  0.1728
+          pred_ItemKNN  0.1720
+        llm_tips_score -0.1567
+          pred_diverse  0.1018
+       knn_vs_usermean  0.0883
+        user_mean_hist  0.0837
+         pred_UserMean  0.0837
+      llm_pop_reliance  0.0537
+               log_pop  0.0463
+      llm_plausibility  0.0391
+      pop_x_cfv2_delta -0.0380
+             item_mean -0.0195
+        llm_confidence  0.0171
+              pred_SVD  0.0144
+     cfv2_delta_vs_knn  0.0133
+             dir_lower  0.0089
+         llm_delta_raw -0.0039
+            dir_higher  0.0011
+pred_diverse_retrieval  0.0000
+     user_rating_count -0.0000
+
+Saved: outputs/stacker

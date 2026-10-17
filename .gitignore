@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# LLM response cache and local model weights
+.cache/
+models/
+
+# Public datasets (download instructions in README)
+data/
+ratings_Electronics.csv
+*.zip
+
+# Bulky regenerable artefacts
+outputs/embeddings/
+outputs/item_llm_emb*.npy
+outputs/**/vllm*.log
+
+# LaTeX build products
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+report/*.nav
+report/*.snm
+report/*.vrb
+report/*.bbl
+report/*.blg
